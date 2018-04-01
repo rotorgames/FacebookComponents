@@ -1,15 +1,26 @@
 
 #load "../common.cake"
 
-var FB_NUGET_VERSION = "4.26.0";
-var AN_NUGET_VERSION = "4.26.0";
+var FB_NUGET_VERSION = "4.31.0";
+var AN_NUGET_VERSION = "4.28.0";
 
-var FB_VERSION = "4.26.0";
-var FB_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}.aar", FB_VERSION);
-var FB_DOCS_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/facebook-android-sdk/{0}/facebook-android-sdk-{0}-javadoc.jar", FB_VERSION);
+var FB_VERSION = "4.31.0";
+var FB_URL = "http://search.maven.org/remotecontent?filepath=com/facebook/android/{0}/{1}/{0}-{1}.aar";
+var FB_DOCS_URL = "http://search.maven.org/remotecontent?filepath=com/facebook/android/{0}/{1}/{0}-{1}-javadoc.jar";
 
-var AN_VERSION = "4.26.0";
+var AN_VERSION = "4.28.0";
 var AN_URL = string.Format ("http://search.maven.org/remotecontent?filepath=com/facebook/android/audience-network-sdk/{0}/audience-network-sdk-{0}.aar", AN_VERSION);
+
+var REQUIRED_PACKAGES = new []{
+	"facebook-android-sdk",
+	"facebook-core",
+	"facebook-common",
+	"facebook-login",
+	"facebook-share",
+	"facebook-places",
+	"facebook-applinks",
+	"facebook-messenger"
+};
 
 var TARGET = Argument ("t", Argument ("target", "Default"));
 
@@ -48,13 +59,14 @@ Task ("externals")
 {
 	EnsureDirectoryExists ("./externals/");
 
-	// Download the FB aar
-	DownloadFile (FB_URL, "./externals/facebook.aar");
-
-	// Download, and unzip the docs .jar
-	DownloadFile (FB_DOCS_URL, "./externals/facebook-docs.jar");
-	EnsureDirectoryExists ("./externals/fb-docs");
-	Unzip ("./externals/facebook-docs.jar", "./externals/fb-docs");
+	foreach(var packageName in REQUIRED_PACKAGES){
+		// Download the FB aar
+		DownloadFile (string.Format(FB_URL, packageName, FB_VERSION), string.Format("./externals/{0}.aar", packageName));
+		// Download, and unzip the docs .jar
+		DownloadFile (string.Format(FB_DOCS_URL, packageName, FB_VERSION), string.Format("./externals/{0}-docs.jar", packageName));
+		EnsureDirectoryExists (string.Format("./externals/{0}-docs", packageName));
+		Unzip (string.Format("./externals/{0}-docs.jar", packageName), string.Format("./externals/{0}-docs", packageName));
+	}
 
 	// Download the FB aar
 	DownloadFile (AN_URL, "./externals/audiencenetwork.aar");
