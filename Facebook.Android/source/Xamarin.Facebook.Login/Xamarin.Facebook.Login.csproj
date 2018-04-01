@@ -48,9 +48,23 @@
     <None Include="Additions\AboutAdditions.txt" />
   </ItemGroup>
   <ItemGroup>
-    <TransformFile Include="Transforms\Metadata.xml" />
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Facebook.Common\Xamarin.Facebook.Common.csproj">
+      <Project>{0b4aaaff-9220-4b65-8fda-fd6aef9d72d9}</Project>
+      <Name>Xamarin.Facebook.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Core\Xamarin.Facebook.Core.csproj">
+      <Project>{386f2542-cb19-4246-b925-2ef0557df0d9}</Project>
+      <Name>Xamarin.Facebook.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TransformFile Include="..\Xamarin.Facebook\Transforms\Metadata.xml">
+      <Link>Transforms\Metadata.xml</Link>
+    </TransformFile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
