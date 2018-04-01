@@ -41,6 +41,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <LibraryProjectZip Include="..\..\externals\facebook-login.aar">
+      <Link>Jars\facebook-login.aar</Link>
+    </LibraryProjectZip>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
   </ItemGroup>
