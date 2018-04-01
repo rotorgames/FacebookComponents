@@ -17,8 +17,9 @@
     <AssemblyName>Xamarin.Facebook</AssemblyName>
     <Java7DocPaths>..\..\externals\fb-docs\</Java7DocPaths>
     <!--JavaDocPaths>docs\</JavaDocPaths -->
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -95,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Additions\Additions.cs" />
   </ItemGroup>
   <ItemGroup>
     <LibraryProjectZip Include="..\..\externals\facebook-android-sdk.aar">
@@ -110,7 +110,36 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
     <TransformFile Include="Transforms\Metadata.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Facebook.Applinks\Xamarin.Facebook.Applinks.csproj">
+      <Project>{4fa52cfa-d2d6-4934-b2f8-216529d322bc}</Project>
+      <Name>Xamarin.Facebook.Applinks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Common\Xamarin.Facebook.Common.csproj">
+      <Project>{0b4aaaff-9220-4b65-8fda-fd6aef9d72d9}</Project>
+      <Name>Xamarin.Facebook.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Core\Xamarin.Facebook.Core.csproj">
+      <Project>{386f2542-cb19-4246-b925-2ef0557df0d9}</Project>
+      <Name>Xamarin.Facebook.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Login\Xamarin.Facebook.Login.csproj">
+      <Project>{b5d58c69-c2ea-493e-a947-dd77cd9bf381}</Project>
+      <Name>Xamarin.Facebook.Login</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Messenger\Xamarin.Facebook.Messenger.csproj">
+      <Project>{b086fd37-9a83-42cf-8b1e-bbabc7483852}</Project>
+      <Name>Xamarin.Facebook.Messenger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Places\Xamarin.Facebook.Places.csproj">
+      <Project>{d28e3bbc-b865-4d24-9496-3ca762242c55}</Project>
+      <Name>Xamarin.Facebook.Places</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Facebook.Share\Xamarin.Facebook.Share.csproj">
+      <Project>{678ca6c9-f962-4b6d-b5a0-b64ab387fecb}</Project>
+      <Name>Xamarin.Facebook.Share</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <Import Project="..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.3\build\Xamarin.Build.Download.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Annotations.25.3.1\build\MonoAndroid70\Xamarin.Android.Support.Annotations.targets')" />
