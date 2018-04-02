@@ -68,7 +68,7 @@ var buildSpec = new BuildSpec () {
 };
 
 Task ("externals")
-	.WithCriteria (!FileExists ("./externals/facebook.aar"))
+	.WithCriteria (!FileExists (string.Format("./externals/{0}.aar", REQUIRED_PACKAGES[0])))
 	.Does (() => 
 {
 	EnsureDirectoryExists ("./externals/");
