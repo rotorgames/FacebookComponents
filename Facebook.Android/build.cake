@@ -32,6 +32,13 @@ var buildSpec = new BuildSpec () {
 			BuildsOn = BuildPlatforms.Mac,
 			OutputFiles = new [] { 
 				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook/bin/Release/Xamarin.Facebook.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Applinks/bin/Release/Xamarin.Facebook.Applinks.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Common/bin/Release/Xamarin.Facebook.Common.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Core/bin/Release/Xamarin.Facebook.Core.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Login/bin/Release/Xamarin.Facebook.Login.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Messenger/bin/Release/Xamarin.Facebook.Messenger.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Places/bin/Release/Xamarin.Facebook.Places.dll" },
+				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.Share/bin/Release/Xamarin.Facebook.Share.dll" },
 				new OutputFileCopy { FromFile = "./source/Xamarin.Facebook.AudienceNetwork/bin/Release/Xamarin.Facebook.AudienceNetwork.dll" }
 			}
 		}
@@ -45,6 +52,13 @@ var buildSpec = new BuildSpec () {
 
 	NuGets = new [] {
 		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Applinks.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Common.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Core.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Login.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Messenger.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Places.Android.nuspec", Version = FB_NUGET_VERSION },
+		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.Share.Android.nuspec", Version = FB_NUGET_VERSION },
 		new NuGetInfo { NuSpec = "./nuget/Xamarin.Facebook.AudienceNetwork.Android.nuspec", Version = AN_NUGET_VERSION },
 	},
 

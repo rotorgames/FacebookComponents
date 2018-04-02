@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Xamarin.Facebook.Android</id>
-    <title>Facebook SDK for Xamarin Android</title>
+    <id>Xamarin.Facebook.Share.Android</id>
+    <title>Facebook Share SDK for Xamarin Android</title>
     <version>$version$</version>
     <authors>Microsoft</authors>
     <owners>Microsoft</owners>
@@ -14,16 +14,12 @@
     <iconUrl>https://raw.githubusercontent.com/xamarin/FacebookComponents/master/icons/facebook-android_128x128.png</iconUrl>
     <dependencies>
       <group targetFramework="MonoAndroid81">
-        <dependency id="Xamarin.Facebook.Login.Android" version="[$version$]" />
-        <dependency id="Xamarin.Facebook.Share.Android" version="[$version$]" />
-        <dependency id="Xamarin.Facebook.Places.Android" version="[$version$]" />
-        <dependency id="Xamarin.Facebook.Messenger.Android" version="[$version$]" />
-        <dependency id="Xamarin.Facebook.Applinks.Android" version="[$version$]" />
+          <dependency id="Xamarin.Facebook.Common.Android" version="[$version$]" />
       </group>
     </dependencies>
   </metadata>
   <files>  
-    <file src="output/Xamarin.Facebook.dll" target="lib/MonoAndroid81" />
+    <file src="output/Xamarin.Facebook.Share.dll" target="lib/MonoAndroid81" />
     <file src="External-Dependency-Info.txt" target="THIRD-PARTY-NOTICES.txt" />
   </files>
 </package>
